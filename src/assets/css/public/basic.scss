@@ -1,0 +1,25 @@
+/* reset */
+    *,
+    *:before,
+    *:after {
+        -webkit-tap-highlight-color: rgba(0,0,0,0);
+        -webkit-tap-highlight-color: transparent;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+    html { -webkit-text-size-adjust: 100%; background: #e6e7eb;}
+    body, ul, ol, li, dl, dt, dd, p, h1, h2, h3, h4, h5, h6, form, input { margin: 0; padding: 0;}
+    input, select, textarea { outline: none; }
+    // input:-webkit-autofill {-webkit-box-shadow: 0 0 0px 23px #fff inset;border-bottom: 1px solid #ededed; }
+    textarea { resize: none; font-family: "microsoft yahei";}
+    ul, ol { list-style: none;}
+    i, em { font-style: normal;}
+    a { text-decoration: none;color: #459ae9;cursor: pointer;}
+    a:hover { text-decoration: underline;}
+    img { border: none;}
+    table { border-spacing: 0; table-layout: fixed;}
+
+    body { position: relative; font: 14px/1.5 "microsoft yahei", BlinkMacSystemFont, "PingFangSC-Regular", "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; word-wrap: break-word;}
+
+    input::-ms-clear{display: none;}
+    input::-ms-reveal{display: none;}
