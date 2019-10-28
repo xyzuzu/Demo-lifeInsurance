@@ -1,12 +1,17 @@
 <template>
   <div id="app">
       <router-view/>
+      <remind/>
   </div>
 </template>
 
 <script>
+    import bus from './assets/js/bus';
     export default {
-        name: 'App'
+        name: 'App',
+        mounted(){
+            bus.$emit('loading');
+        }
     }
     function setHtmlFontSize(){
         var doc = document;

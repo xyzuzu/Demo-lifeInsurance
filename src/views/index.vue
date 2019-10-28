@@ -27,6 +27,7 @@
                         </swiper-slide>
                         <p class="swiper-pagination" slot="pagination"></p>
                     </swiper>
+                    <div class="msg" @click="toService"></div>
                     <!--<img src="../assets/images/banner1.jpg" alt="">-->
                 </div>
                 <div class="nav-ul">  
@@ -38,7 +39,7 @@
                     </ul>
                 </div>
                 <div class="section service-section">
-                    <h2 class="sec-title">全心全意差异化服务</h2>
+                    <h2 class="sec-title"><span class="title">全心全意差异化服务</span></h2>
                     <div class="service-list">
                         <div class="service-item service-left" @click="toService">
                             <p>保险商城</p>
@@ -52,7 +53,7 @@
                     </div>
                 </div>
                 <div class="section product-section">
-                    <h2 class="sec-title"><span>热销产品</span><span @click="toService">查看更多</span></h2>
+                    <h2 class="sec-title"><span class="title">热销产品</span></h2>
                     <div class="product-list">
                         <div class="product-item product-left" @click="toService">
                             <div>
@@ -76,9 +77,10 @@
                             </div>
                         </div>
                     </div>
+                    <div class="bot-title"><span @click="toService">更多热销产品>></span></div>
                 </div>
                 <div class="more-section">
-                    <h2 class="section sec-title" @click="toService">更多精彩</h2>
+                    <h2 class="section" @click="toService"><p class="sec-title"><span class="title">更多精彩</span></p></h2>
                     <div class="section more-tab">
                         <div class="tab" :class="curIndex==1?'tab-act':''" @click="curIndex = 1">公司新闻</div>
                         <div class="tab" :class="curIndex==2?'tab-act':''" @click="curIndex = 2">更多动态</div>
@@ -124,6 +126,7 @@
 <script>
     import 'swiper/dist/css/swiper.css'
     import { swiper, swiperSlide } from 'vue-awesome-swiper'
+    import bus from '../assets/js/bus';
     import tabBar from '@/components/tabBar/tabBar';
     export default{
         data(){
@@ -137,12 +140,12 @@
                     }
                 },
                 swiperSlides: [
-                    {img:require('../assets/images/news1.png')},
-                    {img:require('../assets/images/banner1.jpg')},
+                    {img:require('../assets/images/banner_01.png')},
+                    {img:require('../assets/images/banner1.png')},
                     {img:require('../assets/images/banner2.jpg')},
                 ],
                 indexNav:[
-                    {name:'买车险',img:require('../assets/images/cx2.png'),url:''},
+                    {name:'买车险',img:require('../assets/images/cx1.png'),url:''},
                     {name:'查保单',img:require('../assets/images/bd.png'),url:''},
                     {name:'办理赔',img:require('../assets/images/lp.png'),url:''},
                     {name:'理赔查询',img:require('../assets/images/lpcx.png'),url:''},
@@ -171,10 +174,17 @@
         },
         components: {
         	tabBar,
+            // remind,
             swiper, swiperSlide
         },
         created(){
-
+        },
+        mounted(){
+            this.$nextTick( ()=>{
+                setTimeout( ()=>{
+                    bus.$emit('loaded');
+                },1000)
+            })
         },
         methods:{
             toNext(e){

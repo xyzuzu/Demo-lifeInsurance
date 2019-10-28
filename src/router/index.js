@@ -27,5 +27,10 @@ const router = new Router({
         }
     ]
 })
-console.log(router)
+router.afterEach(route => {
+	// Loading.close();
+    // 设置页面标题
+    document.title = route.meta.title ? route.meta.title +' - 中国人寿财产保险股份有限公司': '中国人寿财产保险股份有限公司';
+
+});
 export default router;

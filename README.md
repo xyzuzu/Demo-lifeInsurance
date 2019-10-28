@@ -1,4 +1,4 @@
-# Demo-lifeInsurance
+# life_insurance
 
 > A Vue.js project
 

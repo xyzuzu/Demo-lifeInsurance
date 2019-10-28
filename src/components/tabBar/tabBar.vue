@@ -26,6 +26,7 @@
     #tabBar{
         position:fixed;
         bottom:0;
+        z-index:90;
         width:100%;
         border-top:1px solid #eee;
         background:#fff;
@@ -40,8 +41,8 @@
             font-size:0.28rem;
             color:#8a8a8a;
             img{
-                width:0.64rem;
-                height:0.64rem;
+                width:0.6rem;
+                height:0.6rem;
             }
             &.li-act{
                 color:#009b63;

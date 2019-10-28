@@ -6,6 +6,7 @@
 </template>
 <script>
     import tabBar from '@/components/tabBar/tabBar';
+    import bus from '../../assets/js/bus';
     export default{
         data(){
             return{
@@ -21,6 +22,13 @@
         },
         created(){
 
+        },
+        mounted(){
+            this.$nextTick( ()=>{
+                setTimeout( ()=>{
+                    bus.$emit('loaded');
+                },1000)
+            })
         },
         methods:{
             toNext(e){
