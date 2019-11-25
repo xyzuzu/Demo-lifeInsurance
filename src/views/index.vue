@@ -28,7 +28,6 @@
                         <p class="swiper-pagination" slot="pagination"></p>
                     </swiper>
                     <div class="msg" @click="toService"></div>
-                    <!--<img src="../assets/images/banner1.jpg" alt="">-->
                 </div>
                 <div class="nav-ul">  
                     <ul>
@@ -82,8 +81,11 @@
                 <div class="more-section">
                     <h2 class="section" @click="toService"><p class="sec-title"><span class="title">更多精彩</span></p></h2>
                     <div class="section more-tab">
-                        <div class="tab" :class="curIndex==1?'tab-act':''" @click="curIndex = 1">公司新闻</div>
-                        <div class="tab" :class="curIndex==2?'tab-act':''" @click="curIndex = 2">更多动态</div>
+                        <div v-for="(item,index) in tabList" :key="item.id" class="tab"  :class="curIndex==(index+1)?'tab-act':''" @click="curIndex = (index+1)">
+                            {{ item.name }}
+                        </div>
+                        <!-- <div class="tab"  :class="curIndex==1?'tab-act':''" @click="curIndex = 1">公司新闻</div>
+                        <div class="tab" :class="curIndex==2?'tab-act':''" @click="curIndex = 2">更多动态</div> -->
                     </div>
                     
                     <!--<transition name="fade">-->
@@ -160,6 +162,10 @@
                     {name:'我的',url:'/mine',check:false,pic:require('../assets/images/user.png'),act_pic:require('../assets/images/user_act.png')}
                 ],
                 curIndex:1,
+                tabList:[
+                    {id:1,name:'公司新闻'},
+                    {id:2,name:'更多动态'},
+                ],
                 newList:[
                     {title:'生日快乐！今天，中国人寿喜迎70华诞！生日快乐！今天，中国人寿喜迎70华诞！生日快乐！',time:'2019-10-21',img:require('../assets/images/news1.png')},
                     {title:'纪实|10分钟，读懂中国人寿的故事！',time:'2019-10-21',img:require('../assets/images/banner1.jpg')},
@@ -168,7 +174,7 @@
                 dynamicList:[
                     {title:'特惠|居家无忧家财险十月特惠，保费不变，保障翻倍！',time:'2019-10-21',img:require('../assets/images/banner2.jpg')},
                     {title:'感动|扎根在大山深处的“保险”书记！',time:'2019-10-21',img:require('../assets/images/news1.png')},
-                    {title:'活动|感恩父母，从守护健康开始！',time:'2019-10-21',img:require('../assets/images/banner1.jpg')},
+                    {title:'活动|感恩父母，从守护健康开始！',time:'2019-10-21',img:require('../assets/images/banner1.jpg')}
                 ]
             }
         },
